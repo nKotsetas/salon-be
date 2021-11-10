@@ -1,5 +1,7 @@
+import { EventsModule } from './events/events.module';
+import { Event } from './events/events.model';
 import { Module } from '@nestjs/common';
-import { EventsController } from './events/events.controller';
+import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { SequelizeModule } from '@nestjs/sequelize';
 
@@ -12,9 +14,11 @@ import { SequelizeModule } from '@nestjs/sequelize';
       username: 'default',
       password: 'secret',
       database: 'default',
+      models: [Event],
     }),
+    EventsModule,
   ],
-  controllers: [EventsController],
+  controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}

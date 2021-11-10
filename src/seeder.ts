@@ -14,6 +14,8 @@ seeder({
       password: 'secret',
       database: 'default',
       models: [Event],
+      autoLoadModels: true,
+      synchronize: true,
     }),
     SequelizeModule.forFeature([Event]),
   ],
